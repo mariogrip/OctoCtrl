@@ -1,0 +1,53 @@
+<ion-view view-title="Connections">
+  <ion-content>
+    <div class="card">
+        <div style="margin-bottom: 0" class="list">
+          <div class="item item-divider">
+            Connections
+          </div>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Serial Port
+            </div>
+            <select>
+              <option ng-repeat="port in items.connections.options.ports" ng-selected="port == items.connections.current.port" >
+                  {{port}}
+              </option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Baudrate
+            </div>
+            <select>
+              <option ng-repeat="baudrate in items.connections.options.baudrates" ng-selected="baudrate == items.connections.current.baudrate" >
+                  {{baudrate}}
+              </option>
+            </select>
+          </label>
+          <div class="item item-toggle">
+            Save connection settings
+            <label class="toggle toggle-assertive">
+              <input ng-model="items.connections.options.autoconnect" type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+          <div class="item item-toggle">
+            Auto-reconnect on server startup
+            <label class="toggle toggle-assertive">
+              <input ng-model="items.connections.options.autoconnect" type="checkbox">
+              <div class="track">
+                <div class="handle"></div>
+              </div>
+            </label>
+          </div>
+
+        </div>
+        <div class="item item-text-wrap">
+        <button style="width: 100%" class="button button-energized">Connect</button>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
