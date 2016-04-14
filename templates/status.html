@@ -1,0 +1,16 @@
+<ion-view view-title="Status">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        Machine State: {{items.state.text}}
+        <br /> File: {{items.job.file.name}}
+        <br /> Print Time: {{items.progress.printTime | secondsToDateTime | date:'HH:mm:ss'}}
+        <br /> Print Time Left: {{items.progress.printTimeLeft | secondsToDateTime | date:'HH:mm:ss'}}
+        <br /> Printed: {{items.progress.filepos | bytes}} / {{items.job.file.size | bytes}}
+        <br /> Current Temp: {{items.temperature.tool0.actual}}°C
+        <br /> Target Temp: {{items.temperature.tool0.target}}°C
+        <br />
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

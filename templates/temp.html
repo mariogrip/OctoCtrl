@@ -1,0 +1,55 @@
+<ion-view view-title="Temperature">
+  <ion-content>
+      <!-- ng-repeat="(num, tempItem) in items.temperature | orderBy:'toString()':true track by $index" ng-if="num.startsWith('tool')" -->
+    <div class="card" >
+      <div class="item item-text-wrap">
+        <div class="row">
+          <div class="col">
+            <h1>Extruder</h1>
+          </div>
+          <div class="col text-right">
+            <h1>{{items.temperature.tool0.actual}}°C</h1>
+          </div>
+        </div>
+        <div style="border-bottom-style: none" class="item range">
+          <p>OFF</p>
+          <input type="range" max="300" ng-model="temp.tool0.target" ng-change="isModifying.tool0 = true" name="volume">
+          <p>300</p>
+        </div>
+        <div ng-if="isModifying.tool0">
+          <button class="button button-balanced" style="width:100%" ng-click="setToolTemp('tool0', temp.tool0.target)" ng-if="temp.tool0.target == 0">Set target OFF</button>
+          <button class="button button-balanced" style="width:100%" ng-click="setToolTemp('tool0', temp.tool0.target)" ng-if="temp.tool0.target != 0">Set target to {{temp.tool0.target}}°C</button>
+        </div>
+        <div ng-if="!isModifying.tool0">
+          <button class="button button-balanced" disabled style="width:100%" ng-if="temp.tool0.target == 0">Target temp is OFF</button>
+          <button class="button button-balanced" disabled style="width:100%" ng-if="temp.tool0.target != 0">Target temp is {{temp.tool0.target}}°C</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="item item-text-wrap">
+        <div class="row">
+          <div class="col">
+            <h1>Heatbed</h1>
+          </div>
+          <div class="col text-right">
+            <h1>{{items.temperature.bed.actual}}°C</h1>
+          </div>
+        </div>
+        <div style="border-bottom-style: none" class="item range">
+          <p>OFF</p>
+          <input type="range" max="100" ng-model="temp.bed.target" ng-change="isModifying.bed = true" name="volume">
+          <p>300</p>
+        </div>
+        <div ng-if="isModifying.bed">
+          <button class="button button-balanced" style="width:100%" ng-click="setBedTemp(temp.bed.target)" ng-if="temp.bed.target == 0">Set target OFF</button>
+          <button class="button button-balanced" style="width:100%" ng-click="setBedTemp(temp.bed.target)" ng-if="temp.bed.target != 0">Set target to {{temp.bed.target}}°C</button>
+        </div>
+        <div ng-if="!isModifying.bed">
+          <button class="button button-balanced" disabled style="width:100%" ng-if="temp.bed.target == 0">Target temp is OFF</button>
+          <button class="button button-balanced" disabled style="width:100%" ng-if="temp.bed.target != 0">Target temp is {{temp.bed.target}}°C</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,74 @@
+<ion-view view-title="Controls">
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap">
+        <table>
+          <tr>
+            <td>
+
+            </td>
+            <td>
+              <i ng-click="move('y', false)" style="font-size: 60px; margin: 5px;" class="icon ion-arrow-up-a"></i>
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <i ng-click="move('z', false)" style="font-size: 60px; margin: 5px; margin-left: 30px;" class="icon ion-arrow-up-a"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <i ng-click="move('x', false)" style="font-size: 60px; margin: 5px;" class="icon ion-arrow-left-a"></i>
+            </td>
+            <td>
+              <i ng-click="home(false)" style="font-size: 60px; margin: 5px;" class="icon ion-home"></i>
+            </td>
+            <td>
+              <i ng-click="move('x', true)" style="font-size: 60px; margin: 5px;" class="icon ion-arrow-right-a"></i>
+            </td>
+            <td>
+              <i ng-click="home(true)" style="font-size: 60px; margin: 5px; margin-left: 30px;" class="icon ion-home"></i>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+            </td>
+            <td>
+              <i ng-click="move('y', true)" style="font-size: 60px; margin: 5px;" class="icon ion-arrow-down-a"></i>
+            </td>
+            <td>
+
+            </td>
+            <td>
+              <i ng-click="move('z', true)" style="font-size: 60px; margin: 5px; margin-left: 30px;" class="icon ion-arrow-down-a"></i>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <ion-list>
+        <ion-radio ng-click="setAmoutMove(1)" ng-model="amountMove" ng-value="1">1</ion-radio>
+        <ion-radio ng-click="setAmoutMove(10)" ng-model="amountMove" ng-value="10">10</ion-radio>
+        <ion-radio ng-click="setAmoutMove(100)" ng-model="amountMove" ng-value="100">100</ion-radio>
+      </ion-list>
+    </div>
+    <div class="card">
+  <div class="item item-text-wrap">
+    <div class="row">
+      <div class="col col-40">
+        <label style="width: 100%" class="item item-input">
+          <input placeholder="mm" style="padding-right: 0;" ng-model="amount" type="number">
+        </label>
+      </div>
+      <div class="col">
+        <button style="width: 100%" ng-click="ext(amount)" class="button">EXT</button>
+      </div>
+      <div class="col">
+        <button style="width: 100%" ng-click="ext(-amount)" class="button">RET</button>
+      </div>
+    </div>
+  </div>
+</div>
+  </ion-content>
+</ion-view>
